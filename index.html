@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nano Banana - AI Image Editor</title>
+  <meta name="description" content="Nano Banana - Next-generation AI image editor that blends speed, consistency, and creative freedom" />
+  <meta name="author" content="Nano Banana" />
+
+  <meta property="og:title" content="Nano Banana - AI Image Editor" />
+  <meta property="og:description" content="Next-generation AI image editor that blends speed, consistency, and creative freedom" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  
+  <!-- Force dark mode -->
+  <script>
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
