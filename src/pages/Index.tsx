@@ -95,6 +95,7 @@ export default function Index() {
             aiProfilePicture={aiProfilePicture}
             isCreateMode={isCreateMode}
             setIsCreateMode={setIsCreateMode}
+            sessionId={currentSessionId}
           />
         </div>
 

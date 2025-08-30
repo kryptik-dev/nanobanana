@@ -31,6 +31,7 @@ interface ChatInterfaceProps {
   aiProfilePicture?: string;
   isCreateMode: boolean;
   setIsCreateMode: (mode: boolean) => void;
+  sessionId: string;
 }
 
 const ChatInterface = ({
@@ -44,7 +45,8 @@ const ChatInterface = ({
   userProfilePicture,
   aiProfilePicture,
   isCreateMode,
-  setIsCreateMode
+  setIsCreateMode,
+  sessionId
 }: ChatInterfaceProps) => {
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -69,6 +71,21 @@ const ChatInterface = ({
   
   // Check if API key is configured
   const isApiKeyConfigured = !!import.meta.env.VITE_OPENROUTER_API_KEY;
+  
+  // Reset image-related state when session changes
+  useEffect(() => {
+    // Clear all image-related state when starting a new chat session
+    setSelectedImage(null);
+    setReferenceImages([]);
+    setPersistentReferenceImages([]);
+    setLastGeneratedImage(null);
+    setIsImagePanelOpen(false);
+    setEditingMessageId(null);
+    setEditingContent('');
+    setRetryAttempt(0);
+    setIsProcessingImage(false);
+    setInput(''); // Also clear the input field
+  }, [sessionId]);
   
   // Helper function to get all available reference images (UI + persistent)
   const getAllReferenceImages = () => {
